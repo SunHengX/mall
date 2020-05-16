@@ -1,9 +1,9 @@
 <template>
   <div class="goods-iteam" @click="getIteams">
-    <img :src="goodsiteam.show.img" />
+    <img v-lazy="showImage" />
     <div class="info"></div>
     <p>{{goodsiteam.title}}</p>
-    <span class="price">{{goodsiteam.orgPrice}}</span>
+    <span class="price">{{getprice}}</span>
     <span class="cfav">{{goodsiteam.cfav}}</span>
   </div>
 </template>
@@ -21,6 +21,14 @@ export default {
   methods: {
     getIteams() {
       this.$router.push("/detail/" + this.goodsiteam.iid);
+    }
+  },
+  computed: {
+    showImage() {
+      return this.goodsiteam.image || this.goodsiteam.show.img;
+    },
+    getprice() {
+      return this.goodsiteam.price || this.goodsiteam.orgPrice;
     }
   }
 };
@@ -53,7 +61,7 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin-bottom: 5px;
+  margin-bottom: -5px;
 }
 .goods-iteam .price {
   color: pink;

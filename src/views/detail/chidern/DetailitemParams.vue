@@ -30,10 +30,10 @@ export default {
   },
   created() {
     getDetail(this.iid).then(res => {
-      console.log(res);
+      // console.log(res);
       this.iteamParam = res.result.itemParams.info.set;
       this.size = res.result.itemParams.rule.tables[0];
-      console.log(this.size);
+      // console.log(this.size);
     });
   }
 };

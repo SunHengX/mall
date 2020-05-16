@@ -9,3 +9,8 @@ export function getDetail(iid) {
   })
 
 }
+export function getRecommend() {
+  return request({
+    url: "/recommend"
+  })
+}

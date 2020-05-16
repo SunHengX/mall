@@ -34,6 +34,7 @@ export default {
   text-align: center;
   flex: 1;
   font-size: 12px;
+  width: 100%;
 }
 .tabbar img {
   height: 30px;

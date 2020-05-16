@@ -8,7 +8,7 @@
       v-if="detailInfo.detailImage !== undefined && detailInfo.detailImage.length>0"
     >{{detailInfo.detailImage[0].key}}</div>-->
     <div class="detailImage">
-      <img v-for="(iteam,index) in list" :key="index" :src="iteam" />
+      <img v-for="(iteam,index) in list" :key="index" :src="iteam" @load="imgload" />
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     getDetail(this.iid).then(res => {
       this.detailInfo = res.result.detailInfo;
       this.list = res.result.detailInfo.detailImage[0].list;
-      console.log(this.list);
+      // console.log(this.list);
     });
   },
 
@@ -34,6 +34,11 @@ export default {
       detailInfo: {},
       list: []
     };
+  },
+  methods: {
+    imgload() {
+      this.$emit("detailLoad");
+    }
   }
 };
 </script>

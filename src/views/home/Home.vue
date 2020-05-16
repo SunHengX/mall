@@ -71,7 +71,7 @@ export default {
   // 当组件创建之后就调用api，获取数据
   created() {
     getHomemain().then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       this.banners = res.data.banner.list;
       this.recommends = res.data.recommend.list;
     });
@@ -79,7 +79,9 @@ export default {
     this.getgoods("sell");
     this.getgoods("new");
   },
-  mounted() {},
+  mounted() {
+    // console.log(this.$refs.TabConol2.offsetTop);
+  },
   methods: {
     getgoods(type) {
       const page = this.goods[type].page + 1;
@@ -120,26 +122,30 @@ export default {
       this.$refs.scroll.scrollTo(0, 0, 500);
     },
     isShow(position) {
-      if (position.y < -651) {
+      if (position.y < -this.offsetTop) {
         this.isView = true;
       } else {
         this.isView = false;
       }
     },
     isLoading() {
-      console.log(this.$refs.TabConol2.$el.offsetTop);
+      // console.log(this.$refs.TabConol2.$el.offsetTop);
+      this.offsetTop = this.$refs.TabConol2.$el.offsetTop;
     }
   }
 };
 </script>
 
 <style  scoped>
+#Home {
+  height: 100vh;
+}
 .cube-slide-dots > span {
   height: 5px;
   background: #fff;
 }
 .scroll-list-wrap {
-  height: 720px;
+  height: calc(100% - 98px);
 }
 #navbar {
   background: pink;

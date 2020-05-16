@@ -2,7 +2,7 @@
   <div class="swiper">
     <cube-slide :data="banners">
       <cube-slide-item v-for="(item, index) in banners" :key="index">
-        <a @click="showPopup('myPopup')">
+        <a @click="showToastTxtOnly">
           <img :src="item.image" @load="isLoading" />
         </a>
       </cube-slide-item>
@@ -36,13 +36,12 @@ export default {
     showImagePreview(index) {
       console.log(index);
     },
-    showPopup(refId) {
-      const component = this.$refs[refId];
-      component.show();
-      setTimeout(() => {
-        component.hide();
-      }, 1000);
-      console.log(component);
+    showToastTxtOnly() {
+      this.toast = this.$createToast({
+        txt: "瞎点啥",
+        type: "txt"
+      });
+      this.toast.show();
     }
   }
 };

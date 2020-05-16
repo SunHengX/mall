@@ -41,7 +41,7 @@ export default {
   },
   created() {
     getDetail(this.iid).then(res => {
-      console.log(res);
+      // console.log(res);
       const infomess = res.result.itemInfo;
       this.titles = infomess.title;
       this.price = infomess.price;

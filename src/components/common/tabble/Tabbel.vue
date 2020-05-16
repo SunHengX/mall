@@ -18,5 +18,14 @@ export default {};
   height: 49px;
   z-index: 3;
   background: rgba(250, 250, 250, 250);
+  width: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-family: -apple-system, Helvetica, sans-serif;
+  color: #666;
+  line-height: 1.5;
+  background-color: #f6f6f6;
 }
 </style>

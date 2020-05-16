@@ -42,7 +42,7 @@ export default {
       this.sells = shop.cSells;
       this.goods = shop.cGoods;
       this.score = shop.score;
-      console.log(res);
+      // console.log(res);
     });
   },
   data() {

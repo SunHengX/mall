@@ -1,15 +1,10 @@
 <template>
   <div class="recommon">
     <div v-for="(iteam,index) in recommends " :key="index" class="recommon-iteam">
-      <a>
+      <a @click="showToastTxtOnly">
         <img :src="iteam.image" />
         <p>{{iteam.title}}</p>
       </a>
-      <cube-popup
-        type="my-popup"
-        ref="myPopup"
-        content="<i>My Popup Content 3</i>"
-      >My Popup Content 1</cube-popup>
     </div>
   </div>
 </template>
@@ -25,12 +20,12 @@ export default {
     }
   },
   methods: {
-    showPopup(refId) {
-      const component = this.$refs[refId];
-      component.show();
-      setTimeout(() => {
-        component.hide();
-      }, 1000);
+    showToastTxtOnly() {
+      this.toast = this.$createToast({
+        txt: "还点！",
+        type: "txt"
+      });
+      this.toast.show();
     }
   }
 };
@@ -49,7 +44,7 @@ export default {
   flex: 1;
 }
 .recommon-iteam img {
-  width: 90px;
-  height: 90px;
+  width: 100%;
+  /* height: 90%; */
 }
 </style>

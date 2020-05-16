@@ -48,7 +48,7 @@ export default {
       this.content = this.rate.content;
       this.explain = this.rate.explain;
       this.style = this.rate.style;
-      console.log(this.rate);
+      // console.log(this.rate);
     });
   }
 };
